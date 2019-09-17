@@ -4,14 +4,11 @@ const chai = require("chai");
 const spies = require("chai-spies");
 const expect = chai.expect;
 
-const intents = require("../intents");
-const welcome = require("../intents/welcome");
-const reset = require("../intents/reset");
-const fallback = require("../intents/fallback");
-const {
-	getURLAuthorizationPlusResource,
-	connection
-} = require("../intents/connectionSharepoint");
+import { getMapIntents } from "../src/getIntents";
+import { welcome } from "../src/intents/welcome";
+import { reset } from "../src/intents/reset";
+import { fallback } from "../src/intents/fallback";
+import { connection } from "../src/intents/connectionSharepoint";
 
 chai.use(spies);
 
@@ -24,7 +21,7 @@ describe("getMapIntents", () => {
 			"Fallback",
 			"reset"
 		];
-		var intentsMap = intents();
+		var intentsMap = getMapIntents();
 		// EVERY INTENT HAS TO BE IN THE INTENTMAP
 		intentsName.forEach(e => expect(intentsMap.has(e)).to.be.true);
 	});

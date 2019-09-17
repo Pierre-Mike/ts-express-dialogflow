@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const { CONFIG, cache, oauth2 } = require("./lib");
 
 const PORT = process.env.PORT || 8080;
-const intents = require("./intents");
+const intents = require("./getIntents");
 const basicAuth = require("express-basic-auth");
 
 // Create a new express application instance
